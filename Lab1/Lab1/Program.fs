@@ -11,31 +11,39 @@ let circleArea r =
 let cylinderVolume r h =
     h * circleArea r
 
-let bigCylinderVol = cylinderVolume 10
+let rec digitSum n =
+    if n = 0 then 0
+    else (n%10) + (digitSum (n/10))
 
 let main () =
-    // суперпозиция
-    printfn "Введите радиус цилиндра:"
-    let radius = System.Console.ReadLine() |> float
-    printfn "Введите высоту цилиндра:"
-    let height = System.Console.ReadLine() |> float
+    //// суперпозиция
+    //System.Console.WriteLine "Введите радиус цилиндра"
+    //let radius = System.Console.ReadLine() |> float
+    //System.Console.WriteLine "Введите высоту цилиндра"
+    //let height = System.Console.ReadLine() |> float
 
-    let calculateVolume = circleArea >> ((*) height)
-    let volume = calculateVolume radius
+    //let calculateVolume = circleArea >> ((*) height)
+    //let volume = calculateVolume radius
 
-    printfn "Объем цилиндра (суперпозиция): %f" volume
+    //System.Console.Write "Объем цилиндра (суперпозиция): "
+    //System.Console.WriteLine volume
 
-    // каррирование
-    printfn "Введите радиус цилиндра:"
-    let radius = System.Console.ReadLine() |> float
+    //// каррирование
+    //System.Console.WriteLine "Введите радиус цилиндра"
+    //let radius = System.Console.ReadLine() |> float
 
-    printfn "Введите высоту цилиндра:"
-    let height = System.Console.ReadLine() |> float
+    //System.Console.WriteLine "Введите высоту цилиндра"
+    //let height = System.Console.ReadLine() |> float
 
-    let calculateVolume = cylinderVolume radius 
-    let volume = calculateVolume height
+    //let calculateVolume = cylinderVolume radius 
+    //let volume = calculateVolume height
 
-    printfn "Объем цилиндра (каррирование): %f" volume
+    //System.Console.Write "Объем цилиндра (каррирование): "
+    //System.Console.WriteLine volume
+
+    let sum = digitSum 268
+    System.Console.Write "сумма цифр числа 268: "
+    System.Console.Write sum
 
     System.Console.ReadKey()
 
