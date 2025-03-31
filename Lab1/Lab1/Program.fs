@@ -136,6 +136,28 @@ let countDigitsLessThan3 n =
             | false -> loop (num / 10) acc
     loop (abs n) 0
 
+let primeDigitsSum n =
+        let rec loop num acc =
+            match num with
+            | 0 -> acc
+            | _ ->
+                let digit = num % 10
+                match isPrime digit with
+                | true -> loop (num / 10) (acc + digit)
+                | false -> loop (num / 10) acc
+        loop n 0
+//3
+let method3 n =
+    let sum = primeDigitsSum n  
+    let rec count i acc =
+        match i > n with
+        | true -> acc
+        | false ->
+            match (n % i <> 0), (gcd i n <> 1), (gcd i sum = 1) with
+            | true, true, true -> count (i + 1) (acc + 1)
+            | _, _, _ -> count (i + 1) acc
+    count 1 0
+
 let main () =
     System.Console.Write(countDigitsLessThan3 123)
 
