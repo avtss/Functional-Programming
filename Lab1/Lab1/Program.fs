@@ -101,9 +101,32 @@ let processCoprimesWithCondition n operation initial condition =
                 loop (i + 1) acc
     loop 1 initial
 
+//Вариант 6
+let isPrime n =
+    match n with
+    | n when n <= 1 -> false
+    | _ ->
+        let rec check i =
+            match i * i > n with
+            | true -> true
+            | false ->
+                match n % i with
+                | 0 -> false
+                | _ -> check (i + 1)
+        check 2
+
+let sumNonPrimeDivisors n =
+    let rec loop i acc =
+        match i > n with
+        | true -> acc
+        | false ->
+            match n % i, isPrime i with
+            | 0, false -> loop (i + 1) (acc + i)
+            | _, _ -> loop (i + 1) acc
+    loop 2 0
+
+
 let main () =
-    let eu = euler 10
-    System.Console.Write("Функция Эйлера от 10: ")
-    System.Console.Write(eu)
+    System.Console.Write(sumNonPrimeDivisors 150)
 
 main()
