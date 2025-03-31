@@ -89,6 +89,17 @@ let euler n =
     | 1 -> 1 
     | _ -> processCoprimes n (fun acc _ -> acc + 1) 0
 
+let processCoprimesWithCondition n operation initial condition =
+    let rec loop i acc =
+        match i > n with
+        | true -> acc
+        | false ->
+            match gcd i n with
+            | 1 when condition i -> 
+                loop (i + 1) (operation acc i)
+            | _ -> 
+                loop (i + 1) acc
+    loop 1 initial
 
 let main () =
     let eu = euler 10
