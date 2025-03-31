@@ -84,10 +84,15 @@ let processCoprimes n operation initial =
             loop (i + 1) newAcc
     loop 1 initial
 
+let euler n =
+    match n with
+    | 1 -> 1 
+    | _ -> processCoprimes n (fun acc _ -> acc + 1) 0
+
 
 let main () =
-    let sum = processCoprimes 10 (+) 0
-    System.Console.Write("Сумма взаимнопростых с 10: ")
-    System.Console.Write(sum)
+    let eu = euler 10
+    System.Console.Write("Функция Эйлера от 10: ")
+    System.Console.Write(eu)
 
 main()
