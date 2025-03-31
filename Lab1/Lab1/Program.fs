@@ -67,8 +67,27 @@ let quizLanguage language =
 let quizLanguageSuperposition = 
     System.Console.ReadLine >> quizLanguage >> System.Console.Write
 
-let main () =
-    quizLanguageSuperposition ()
+let rec gcd a b =
+    match b with
+    | 0 -> a
+    | _ -> gcd b (a % b)
 
+let processCoprimes n operation initial =
+    let rec loop i acc =
+        match i > n with
+        | true -> acc
+        | false -> 
+            let newAcc = 
+                match gcd i n with
+                | 1 -> operation acc i
+                | _ -> acc
+            loop (i + 1) newAcc
+    loop 1 initial
+
+
+let main () =
+    let sum = processCoprimes 10 (+) 0
+    System.Console.Write("Сумма взаимнопростых с 10: ")
+    System.Console.Write(sum)
 
 main()
