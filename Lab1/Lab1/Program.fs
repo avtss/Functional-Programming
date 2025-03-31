@@ -44,50 +44,28 @@ let digitTraversal number operation initial =
             loop (n / 10) (operation acc digit)
     loop number initial
 
+let conditionalDigitTraversal number operation initial condition =
+    let rec loop n acc =
+        match n with
+        | 0 -> acc
+        | _ ->
+            let digit = n % 10
+            let newAcc = 
+                match condition digit with
+                | true -> operation acc digit
+                | false -> acc
+            loop (n / 10) newAcc
+    loop number initial
+
+let quizLanguage language =
+    match language with
+    | "F#" | "Prolog" -> "Ты - подлиза"
+    | "Java" | "C#"  -> "ООП круто"
+    | "Python" -> "некруто"
+    |_ -> "вау"
+
 let main () =
-    let number = 12345
-    
-    let sum = digitTraversal number (+) 0
-    printfn "Сумма цифр числа %d: %d" number sum
-    
-    let product = digitTraversal number (*) 1
-    printfn "Произведение цифр числа %d: %d" number product
-    //let func = getFunction(true)
-    //System.Console.WriteLine(func 123)
-    //// суперпозиция
-    //System.Console.WriteLine "Введите радиус цилиндра"
-    //let radius = System.Console.ReadLine() |> float
-    //System.Console.WriteLine "Введите высоту цилиндра"
-    //let height = System.Console.ReadLine() |> float
-
-    //let calculateVolume = circleArea >> ((*) height)
-    //let volume = calculateVolume radius
-
-    //System.Console.Write "Объем цилиндра (суперпозиция): "
-    //System.Console.WriteLine volume
-
-    //// каррирование
-    //System.Console.WriteLine "Введите радиус цилиндра"
-    //let radius = System.Console.ReadLine() |> float
-
-    //System.Console.WriteLine "Введите высоту цилиндра"
-    //let height = System.Console.ReadLine() |> float
-
-    //let calculateVolume = cylinderVolume radius 
-    //let volume = calculateVolume height
-
-    //System.Console.Write "Объем цилиндра (каррирование): "
-    //System.Console.WriteLine volume
-
-    //let sum = digitSum 268
-    //System.Console.Write "сумма цифр числа 268: "
-    //System.Console.WriteLine sum
-
-    //let sum2 = digitSum2 324
-    //System.Console.Write "сумма цифр числа 324: "
-    //System.Console.Write sum2
-
-    //System.Console.ReadKey()
+    System.Console.Write (quizLanguage "Prolog")
 
 
 main()
