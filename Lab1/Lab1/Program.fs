@@ -64,8 +64,11 @@ let quizLanguage language =
     | "Python" -> "некруто"
     |_ -> "вау"
 
+let quizLanguageSuperposition = 
+    System.Console.ReadLine >> quizLanguage >> System.Console.Write
+
 let main () =
-    System.Console.Write (quizLanguage "Prolog")
+    quizLanguageSuperposition ()
 
 
 main()
