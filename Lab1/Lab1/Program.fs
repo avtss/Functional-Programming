@@ -114,7 +114,7 @@ let isPrime n =
                 | 0 -> false
                 | _ -> check (i + 1)
         check 2
-
+//1
 let sumNonPrimeDivisors n =
     let rec loop i acc =
         match i > n with
@@ -124,9 +124,19 @@ let sumNonPrimeDivisors n =
             | 0, false -> loop (i + 1) (acc + i)
             | _, _ -> loop (i + 1) acc
     loop 2 0
-
+//2
+let countDigitsLessThan3 n =
+    let rec loop num acc =
+        match num with
+        | 0 -> acc
+        | _ ->
+            let dig = num % 10
+            match dig < 3 with
+            | true -> loop (num / 10) (acc + 1)
+            | false -> loop (num / 10) acc
+    loop (abs n) 0
 
 let main () =
-    System.Console.Write(sumNonPrimeDivisors 150)
+    System.Console.Write(countDigitsLessThan3 123)
 
 main()
