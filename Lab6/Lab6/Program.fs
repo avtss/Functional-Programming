@@ -10,7 +10,16 @@ let readList n =
             readListRec (k-1) newAcc
     readListRec n []
 
+let rec printList list =
+    match list with
+    |[] -> Console.ReadKey()
+    |head::tail ->
+        Console.WriteLine(head.ToString())
+        printList tail
+
 let main =
-    readList 5
+    let list = readList 5
+    printList list
+    
 
 main
