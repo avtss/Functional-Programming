@@ -41,9 +41,14 @@ let mostFrequentElement list =
     |> List.maxBy snd
     |> fst
 
+let countSquares list =
+    let squares = list |> List.map (fun x -> x * x)
+    list
+    |> List.filter (fun x -> List.contains x squares)
+    |> List.length
+
 let main =
     let list = [1; 2; 3; 2; 1; 2; 4; 2]
-    let result = mostFrequentElement list
-    System.Console.Write(result)
+    countSquares list
 
 main
