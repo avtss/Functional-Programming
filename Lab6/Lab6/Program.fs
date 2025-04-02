@@ -74,13 +74,12 @@ let createTuples (listA: int list) (listB: int list) (listC: int list) =
 
     List.zip3 sortedA sortedB sortedC
 
+let sortStringsByLength (strings: string list) =
+    strings |> List.sortBy (fun s -> s.Length)
+
 let main =
-    let listA = [10; 5; 8; 3]
-    let listB = [123; 45; 67; 89]
-    let listC = [12; 7; 24; 13]
-
-    let result = createTuples listA listB listC
-    printList result
-
+    let fruits = ["яблоко"; "апельсин"; "банан"; "киви"]
+    let sortedFruits = sortStringsByLength fruits
+    System.Console.Write(sortedFruits)
 main
 
