@@ -47,8 +47,40 @@ let countSquares list =
     |> List.filter (fun x -> List.contains x squares)
     |> List.length
 
+//10
+let sumDigits n = 
+        let rec loop acc = function
+            | 0 -> acc
+            | x -> loop (acc + x % 10) (x / 10)
+        loop 0 (abs n)
+
+let countDivisors n =
+        if n = 0 then 0
+        else
+            let nAbs = abs n
+            [1..nAbs] |> List.filter (fun x -> nAbs % x = 0) |> List.length
+let createTuples (listA: int list) (listB: int list) (listC: int list) =
+    let sortedA = listA |> List.sortDescending
+
+    let sortedB = 
+        listB 
+        |> List.sortBy (fun x -> abs x |> (~-))  
+        |> List.sortBy sumDigits               
+
+    let sortedC = 
+        listC 
+        |> List.sortBy (fun x -> abs x |> (~-))  
+        |> List.sortBy (fun x -> countDivisors x |> (~-))  
+
+    List.zip3 sortedA sortedB sortedC
+
 let main =
-    let list = [1; 2; 3; 2; 1; 2; 4; 2]
-    countSquares list
+    let listA = [10; 5; 8; 3]
+    let listB = [123; 45; 67; 89]
+    let listC = [12; 7; 24; 13]
+
+    let result = createTuples listA listB listC
+    printList result
 
 main
+
