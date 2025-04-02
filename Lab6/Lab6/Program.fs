@@ -34,16 +34,16 @@ let min_list list =
 let sum_even list = reduce_list list (+) (fun a -> a%2 = 0) 0
 
 let count_odd list = reduce_list list (fun a b -> a+1) (fun a -> a%2 = 1) 0
+//со встроенным List
+let mostFrequentElement list =
+    list
+    |> List.countBy id
+    |> List.maxBy snd
+    |> fst
 
 let main =
-    let test = [5; 3; 8; 1; 4; 6]
-    System.Console.Write("Минимум в списке: ")
-    System.Console.WriteLine(min_list test)
-
-    System.Console.Write("Сумма четных в списке: ")
-    System.Console.WriteLine(sum_even test)
-
-    System.Console.Write("Количество нечетных в списке: ")
-    System.Console.WriteLine(count_odd test)
+    let list = [1; 2; 3; 2; 1; 2; 4; 2]
+    let result = mostFrequentElement list
+    System.Console.Write(result)
 
 main
