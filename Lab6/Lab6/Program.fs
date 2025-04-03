@@ -77,6 +77,21 @@ let createTuples (listA: int list) (listB: int list) (listC: int list) =
 let sortStringsByLength (strings: string list) =
     strings |> List.sortBy (fun s -> s.Length)
 
+let rec frequency list num count =
+    match list with
+    | [] -> count
+    | head::tail -> 
+        let newCount = if head = num then count+1 else count
+        frequency tail num newCount
+
+let rec freq_list list main_list cur_list = 
+    match list with
+    | [] -> cur_list
+    | head::tail -> 
+        let freq_elem = frequency main_list head 0
+        let new_list = cur_list @ [freq_elem]
+        freq_list tail main_list new_list
+
 let main =
     let fruits = ["яблоко"; "апельсин"; "банан"; "киви"]
     let sortedFruits = sortStringsByLength fruits
