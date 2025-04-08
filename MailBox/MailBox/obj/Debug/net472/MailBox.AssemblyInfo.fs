@@ -7,11 +7,11 @@ open System
 open System.Reflection
 
 
-[<assembly: System.Reflection.AssemblyCompanyAttribute("Maybe")>]
+[<assembly: System.Reflection.AssemblyCompanyAttribute("MailBox")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
 [<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a86c6b779904acccdb3d6e9f49d4009a792fb004")>]
-[<assembly: System.Reflection.AssemblyProductAttribute("Maybe")>]
-[<assembly: System.Reflection.AssemblyTitleAttribute("Maybe")>]
+[<assembly: System.Reflection.AssemblyProductAttribute("MailBox")>]
+[<assembly: System.Reflection.AssemblyTitleAttribute("MailBox")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
 do()
