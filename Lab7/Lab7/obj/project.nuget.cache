@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "nj1CFCrcP6k=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aveti\\Functional-Programming\\Lab7\\Lab7\\Lab7.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aveti\\.nuget\\packages\\fsharp.core\\9.0.100\\fsharp.core.9.0.100.nupkg.sha512"
+  ],
+  "logs": []
+}

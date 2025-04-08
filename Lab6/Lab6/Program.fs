@@ -92,6 +92,11 @@ let rec freq_list list main_list cur_list =
         let new_list = cur_list @ [freq_elem]
         freq_list tail main_list new_list
 
+let rec shiftLeftByThree lst =
+    match lst with
+    | a1 :: a2 :: a3 :: rest -> rest @ [a1; a2; a3]
+    | _ -> lst
+
 let main =
     let fruits = ["яблоко"; "апельсин"; "банан"; "киви"]
     let sortedFruits = sortStringsByLength fruits
